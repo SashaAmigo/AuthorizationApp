@@ -33,7 +33,7 @@ final class LogInViewController: UIViewController {
         if touches.first != nil {
             view.endEditing(true)
         }
-            super.touchesBegan(touches, with: event)
+        super.touchesBegan(touches, with: event)
     }
     
     //MARK: - IB Action
