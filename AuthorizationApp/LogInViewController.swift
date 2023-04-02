@@ -29,6 +29,13 @@ final class LogInViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            view.endEditing(true)
+        }
+            super.touchesBegan(touches, with: event)
+    }
+    
     //MARK: - IB Action
     @IBAction func forgotLoginTapped(_ sender: Any) {
         remindData("Your login is", "\(userName)")
