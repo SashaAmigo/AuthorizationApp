@@ -25,7 +25,7 @@ final class LogInViewController: UIViewController {
             guard let LogInVC = segue.destination as? GreetingViewController else {return}
             LogInVC.greetingUser = userLoginTF.text
         } else {
-            wrongData("Wrong login or password", "Please check the entered data")
+            wrongDataAlert("Wrong login or password", "Please check the entered data")
         }
     }
     
@@ -33,15 +33,15 @@ final class LogInViewController: UIViewController {
         if touches.first != nil {
             view.endEditing(true)
         }
-        super.touchesBegan(touches, with: event)
+            super.touchesBegan(touches, with: event)
     }
     
     //MARK: - IB Action
     @IBAction func forgotLoginTapped(_ sender: Any) {
-        remindData("Your login is", "\(userName)")
+        wrongDataAlert("Your login is", "\(userName)")
     }
     @IBAction func forgotPasswordTapper(_ sender: Any) {
-        remindData("Your password is", "\(userPassword)")
+        wrongDataAlert("Your password is", "\(userPassword)")
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -50,17 +50,7 @@ final class LogInViewController: UIViewController {
     }
     
     //MARK: - Private Methods
-    private func remindData(_ title: String,_ message: String ) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-    private func wrongData(_ title: String,_ message: String ) {
+    private func wrongDataAlert(_ title: String,_ message: String ) {
         let alert = UIAlertController(
             title: title,
             message: message,
