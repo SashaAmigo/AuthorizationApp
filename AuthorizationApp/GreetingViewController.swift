@@ -17,7 +17,7 @@ final class GreetingViewController: UIViewController {
     //MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        greetingUserTF.text = "Welcome, \(greetingUser ?? "User")!"
+        greetingUserTF.text! += greetingUser ?? "User"
         backgroundGradient()
     }
     
